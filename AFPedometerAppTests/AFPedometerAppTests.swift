@@ -8,26 +8,42 @@
 import XCTest
 @testable import AFPedometerApp
 
+protocol Pedometer {
+    func start()
+}
+
+class MockPedometer: Pedometer {
+    var isStarted = false
+    
+    func start() {
+        isStarted = true
+    }
+}
+
+class PedometerViewModel {
+    private let pedometer: Pedometer
+    
+    init(pedometer: Pedometer) {
+        self.pedometer = pedometer
+    }
+    
+    func startPedometer() {
+        pedometer.start()
+    }
+}
+
 class AFPedometerAppTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func test_Pedometer_ShouldStartWhenInitalized() {
+        // given
+        let pedometer = MockPedometer()
+        let viewModel = PedometerViewModel(pedometer: pedometer)
+        
+        // when
+        viewModel.startPedometer()
+        
+        // then
+        XCTAssertTrue(pedometer.isStarted)
     }
 
 }
