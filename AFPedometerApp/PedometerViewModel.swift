@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import CoreMotion
 
 enum AppState {
     case notStarted
     case inProgress
+    case notAuthorized
 }
 
 class PedometerViewModel {
@@ -32,6 +34,15 @@ class PedometerViewModel {
         }
         
         appState = .inProgress
-        pedometer.start()
+        self.pedometer.start { error in
+            if let error = error {
+                let nsError = error as NSError
+                if nsError.domain == CMErrorDomain
+                    && nsError.code == CMErrorMotionActivityNotAuthorized.rawValue {
+                    self.appState = .notAuthorized
+                }
+            }
+        }
+        
     }
 }

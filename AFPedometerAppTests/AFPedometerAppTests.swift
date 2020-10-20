@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import AFPedometerApp
+import CoreMotion
 
 
 class MockPedometer: Pedometer {
@@ -15,8 +16,22 @@ class MockPedometer: Pedometer {
     
     var isStarted = false
     
-    func start() {
-        isStarted = true
+    var error: Error?
+    
+    static let noAuthorizationError = NSError(
+        domain: CMErrorDomain,
+        code: Int(CMErrorMotionActivityNotAuthorized.rawValue),
+        userInfo: nil
+    )
+    
+    // static var notAthorizedError = NS
+    
+    func start(completion: @escaping (Error?) -> Void) {
+        self.isStarted = true
+        
+        DispatchQueue.global(qos: .default).async {
+            completion(self.error)
+        }
     }
 }
 
@@ -37,7 +52,7 @@ class AFPedometerAppTests: XCTestCase {
     func test_PedometerViewModel_ShouldNotStarted_WhenPedometerIsNotAvailable() {
         // given
         let pedometer = MockPedometer()
-        pedometer.isPedometerAvaialable = false
+        pedometer.isPedometerAvaialable = false // stubbing
         let viewModel = PedometerViewModel(pedometer: pedometer)
         
         // when
@@ -50,7 +65,7 @@ class AFPedometerAppTests: XCTestCase {
     func test_PedometerViewModel_WhenUserDeniedPermission_ShouldReturnNotstartedState() {
         // given
         let pedometer = MockPedometer()
-        pedometer.isPemissionDeclined = true
+        pedometer.isPemissionDeclined = true // stubbing
         let viewModel = PedometerViewModel(pedometer: pedometer)
         
         // when
@@ -60,17 +75,24 @@ class AFPedometerAppTests: XCTestCase {
         XCTAssertEqual(viewModel.appState, .notStarted)
     }
     
-    func test_PedometerViewModel_WhenUserAllowPermission_ShouldReturnInProgressState() {
+    func test_PedometerViewModel_WhenUserIsNotAllowPermission_ShouldReturnUnaothorized() {
         // given
         let pedometer = MockPedometer()
-        pedometer.isPemissionDeclined = false
+        pedometer.error = MockPedometer.noAuthorizationError // stubbing
         let viewModel = PedometerViewModel(pedometer: pedometer)
+        
+        let predicate = NSPredicate { (object, _) -> Bool in
+            let vm = object as! PedometerViewModel
+            return vm.appState == .notAuthorized
+        }
+        let expectation = self.expectation(for: predicate, evaluatedWith: viewModel, handler: nil)
         
         // when
         viewModel.startPedometer()
+        wait(for: [expectation], timeout: 2.0)
         
         // then
-        XCTAssertEqual(viewModel.appState, .inProgress)
+        XCTAssertEqual(viewModel.appState, .notAuthorized)
     }
 
 }

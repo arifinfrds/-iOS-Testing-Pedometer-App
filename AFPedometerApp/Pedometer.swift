@@ -11,5 +11,5 @@ protocol Pedometer {
     var isPedometerAvaialable: Bool { get }
     var isPemissionDeclined: Bool { get }
     
-    func start()
+    func start(completion: @escaping (Error?) -> Void)
 }
