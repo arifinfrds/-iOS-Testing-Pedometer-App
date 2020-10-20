@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		920B12D9253EEE14006868DC /* CMPedometer+Pedometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B12D8253EEE14006868DC /* CMPedometer+Pedometer.swift */; };
+		920B12DE253EEE34006868DC /* Pedometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B12DD253EEE34006868DC /* Pedometer.swift */; };
+		920B12E3253EEE47006868DC /* PedometerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B12E2253EEE47006868DC /* PedometerViewModel.swift */; };
 		924E22D9253DE0C80076642A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E22D8253DE0C80076642A /* AppDelegate.swift */; };
 		924E22DB253DE0C80076642A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E22DA253DE0C80076642A /* SceneDelegate.swift */; };
 		924E22DD253DE0C80076642A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E22DC253DE0C80076642A /* ContentView.swift */; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		920B12D8253EEE14006868DC /* CMPedometer+Pedometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMPedometer+Pedometer.swift"; sourceTree = "<group>"; };
+		920B12DD253EEE34006868DC /* Pedometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pedometer.swift; sourceTree = "<group>"; };
+		920B12E2253EEE47006868DC /* PedometerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedometerViewModel.swift; sourceTree = "<group>"; };
 		924E22D5253DE0C80076642A /* AFPedometerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AFPedometerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		924E22D8253DE0C80076642A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		924E22DA253DE0C80076642A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +115,9 @@
 				924E22E3253DE0C90076642A /* LaunchScreen.storyboard */,
 				924E22E6253DE0C90076642A /* Info.plist */,
 				924E22E0253DE0C90076642A /* Preview Content */,
+				920B12D8253EEE14006868DC /* CMPedometer+Pedometer.swift */,
+				920B12DD253EEE34006868DC /* Pedometer.swift */,
+				920B12E2253EEE47006868DC /* PedometerViewModel.swift */,
 			);
 			path = AFPedometerApp;
 			sourceTree = "<group>";
@@ -270,9 +279,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				920B12DE253EEE34006868DC /* Pedometer.swift in Sources */,
 				924E22D9253DE0C80076642A /* AppDelegate.swift in Sources */,
 				924E22DB253DE0C80076642A /* SceneDelegate.swift in Sources */,
 				924E22DD253DE0C80076642A /* ContentView.swift in Sources */,
+				920B12E3253EEE47006868DC /* PedometerViewModel.swift in Sources */,
+				920B12D9253EEE14006868DC /* CMPedometer+Pedometer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

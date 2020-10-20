@@ -7,26 +7,7 @@
 
 import XCTest
 @testable import AFPedometerApp
-import CoreMotion
 
-
-protocol Pedometer {
-    var isPedometerAvaialable: Bool { get }
-    func start()
-}
-
-extension CMPedometer: Pedometer {
-    
-    var isPedometerAvaialable: Bool {
-        return CMPedometer.isStepCountingAvailable()
-            && CMPedometer.isDistanceAvailable()
-            && CMPedometer.authorizationStatus() != .restricted
-    }
-    
-    func start() {
-        
-    }
-}
 
 class MockPedometer: Pedometer {
     var isPedometerAvaialable: Bool = true
@@ -35,28 +16,6 @@ class MockPedometer: Pedometer {
     
     func start() {
         isStarted = true
-    }
-}
-
-enum AppState {
-    case notStarted
-    case inProgress
-}
-
-class PedometerViewModel {
-    private let pedometer: Pedometer
-    var appState: AppState = .notStarted
-    
-    init(pedometer: Pedometer) {
-        self.pedometer = pedometer
-    }
-    
-    func startPedometer() {
-        if !pedometer.isPedometerAvaialable {
-            self.appState = .notStarted
-            return
-        }
-        pedometer.start()
     }
 }
 
