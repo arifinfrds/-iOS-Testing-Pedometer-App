@@ -25,6 +25,13 @@ class PedometerViewModel {
             self.appState = .notStarted
             return
         }
+        
+        if pedometer.isPemissionDeclined {
+            self.appState = .notStarted
+            return
+        }
+        
+        appState = .inProgress
         pedometer.start()
     }
 }

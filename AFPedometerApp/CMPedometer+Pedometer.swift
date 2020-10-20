@@ -9,12 +9,17 @@ import Foundation
 import CoreMotion
 
 extension CMPedometer: Pedometer {
-    
+  
     var isPedometerAvaialable: Bool {
         return CMPedometer.isStepCountingAvailable()
             && CMPedometer.isDistanceAvailable()
             && CMPedometer.authorizationStatus() != .restricted
     }
+    
+    var isPemissionDeclined: Bool {
+        return CMPedometer.authorizationStatus() == .denied
+    }
+    
     
     func start() {
         

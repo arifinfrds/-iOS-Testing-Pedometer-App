@@ -11,6 +11,7 @@ import XCTest
 
 class MockPedometer: Pedometer {
     var isPedometerAvaialable: Bool = true
+    var isPemissionDeclined: Bool = false
     
     var isStarted = false
     
@@ -33,7 +34,7 @@ class AFPedometerAppTests: XCTestCase {
         XCTAssertTrue(pedometer.isStarted)
     }
     
-    func test_Pedometer_ShouldNotStarted_WhenPedometerIsNotAvailable() {
+    func test_PedometerViewModel_ShouldNotStarted_WhenPedometerIsNotAvailable() {
         // given
         let pedometer = MockPedometer()
         pedometer.isPedometerAvaialable = false
@@ -44,6 +45,32 @@ class AFPedometerAppTests: XCTestCase {
         
         // then
         XCTAssertEqual(viewModel.appState, .notStarted)
+    }
+    
+    func test_PedometerViewModel_WhenUserDeniedPermission_ShouldReturnNotstartedState() {
+        // given
+        let pedometer = MockPedometer()
+        pedometer.isPemissionDeclined = true
+        let viewModel = PedometerViewModel(pedometer: pedometer)
+        
+        // when
+        viewModel.startPedometer()
+        
+        // then
+        XCTAssertEqual(viewModel.appState, .notStarted)
+    }
+    
+    func test_PedometerViewModel_WhenUserAllowPermission_ShouldReturnInProgressState() {
+        // given
+        let pedometer = MockPedometer()
+        pedometer.isPemissionDeclined = false
+        let viewModel = PedometerViewModel(pedometer: pedometer)
+        
+        // when
+        viewModel.startPedometer()
+        
+        // then
+        XCTAssertEqual(viewModel.appState, .inProgress)
     }
 
 }

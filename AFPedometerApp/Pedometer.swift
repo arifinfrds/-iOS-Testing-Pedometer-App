@@ -9,5 +9,7 @@ import Foundation
 
 protocol Pedometer {
     var isPedometerAvaialable: Bool { get }
+    var isPemissionDeclined: Bool { get }
+    
     func start()
 }
