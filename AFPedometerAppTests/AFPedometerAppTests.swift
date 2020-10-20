@@ -7,9 +7,17 @@
 
 import XCTest
 @testable import AFPedometerApp
+import CoreMotion
+
 
 protocol Pedometer {
     func start()
+}
+
+extension CMPedometer: Pedometer {
+    func start() {
+        
+    }
 }
 
 class MockPedometer: Pedometer {

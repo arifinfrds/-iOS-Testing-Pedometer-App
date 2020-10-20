@@ -15,6 +15,7 @@
 		924E22E5253DE0C90076642A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924E22E3253DE0C90076642A /* LaunchScreen.storyboard */; };
 		924E22F0253DE0C90076642A /* AFPedometerAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E22EF253DE0C90076642A /* AFPedometerAppTests.swift */; };
 		924E22FB253DE0C90076642A /* AFPedometerAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E22FA253DE0C90076642A /* AFPedometerAppUITests.swift */; };
+		924E230C253DE4590076642A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 924E230B253DE4590076642A /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		924E22F6253DE0C90076642A /* AFPedometerAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AFPedometerAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		924E22FA253DE0C90076642A /* AFPedometerAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFPedometerAppUITests.swift; sourceTree = "<group>"; };
 		924E22FC253DE0C90076642A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		924E230B253DE4590076642A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		924E22CC253DE0C80076642A = {
 			isa = PBXGroup;
 			children = (
+				924E230B253DE4590076642A /* README.md */,
 				924E22D7253DE0C80076642A /* AFPedometerApp */,
 				924E22EE253DE0C90076642A /* AFPedometerAppTests */,
 				924E22F9253DE0C90076642A /* AFPedometerAppUITests */,
@@ -241,6 +244,7 @@
 			files = (
 				924E22E5253DE0C90076642A /* LaunchScreen.storyboard in Resources */,
 				924E22E2253DE0C90076642A /* Preview Assets.xcassets in Resources */,
+				924E230C253DE4590076642A /* README.md in Resources */,
 				924E22DF253DE0C90076642A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
