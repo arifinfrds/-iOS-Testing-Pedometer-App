@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import CoreMotion
 
 protocol Pedometer {
     var isPedometerAvaialable: Bool { get }
     var isPemissionDeclined: Bool { get }
     
-    func start(completion: @escaping (Error?) -> Void)
+    func start(
+        updatesCompletion: @escaping (PedometerData?, Error?) -> Void,
+        eventUpdatesCompletion: @escaping (CMPedometerEvent?, Error?) -> Void
+    )
 }

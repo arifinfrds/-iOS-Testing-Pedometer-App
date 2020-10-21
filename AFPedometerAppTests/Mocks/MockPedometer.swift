@@ -9,7 +9,9 @@ import Foundation
 import CoreMotion
 @testable import AFPedometerApp
 
+
 class MockPedometer: Pedometer {
+    
     var isPedometerAvaialable: Bool = true
     var isPemissionDeclined: Bool = false
     
@@ -17,19 +19,27 @@ class MockPedometer: Pedometer {
     
     var error: Error?
     
+    var updateBlock: ((CMPedometerEvent?, Error?) -> Void)?
+    var dataBlock: ((PedometerData?, Error?) -> Void)?
+        
     static let noAuthorizationError = NSError(
         domain: CMErrorDomain,
         code: Int(CMErrorMotionActivityNotAuthorized.rawValue),
         userInfo: nil
     )
     
-    // static var notAthorizedError = NS
+    func sendData(_ data: MockPedometerData) {
+        self.dataBlock?(data, error)
+    }
     
-    func start(completion: @escaping (Error?) -> Void) {
+    func start(updatesCompletion: @escaping (PedometerData?, Error?) -> Void, eventUpdatesCompletion: @escaping (CMPedometerEvent?, Error?) -> Void) {
         self.isStarted = true
+        self.updateBlock = eventUpdatesCompletion
+        self.dataBlock = updatesCompletion
         
         DispatchQueue.global(qos: .default).async {
-            completion(self.error)
+            self.updateBlock?(nil, self.error)
         }
     }
+    
 }

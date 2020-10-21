@@ -18,6 +18,9 @@ class PedometerViewModel {
     private let pedometer: Pedometer
     var appState: AppState = .notStarted
     
+    var steps: Int = 0
+    var distranceTravelled: Double = 0
+    
     init(pedometer: Pedometer) {
         self.pedometer = pedometer
     }
@@ -34,7 +37,10 @@ class PedometerViewModel {
         }
         
         appState = .inProgress
-        self.pedometer.start { error in
+        self.pedometer.start { (pedometerData, error) in
+            self.steps = pedometerData?.steps ?? 0
+            self.distranceTravelled = pedometerData?.distanceTravelled ?? 0
+        } eventUpdatesCompletion: { (_, error) in
             if let error = error {
                 let nsError = error as NSError
                 if nsError.domain == CMErrorDomain
@@ -43,6 +49,7 @@ class PedometerViewModel {
                 }
             }
         }
+        
         
     }
 }

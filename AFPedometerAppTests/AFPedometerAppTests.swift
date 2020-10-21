@@ -68,5 +68,21 @@ class AFPedometerAppTests: XCTestCase {
         // then
         XCTAssertEqual(viewModel.appState, .notAuthorized)
     }
+    
+    func test_PedometerViewModel_WhenPedometerGotUpdated_ShouldUpdatePedometerViewModel() {
+        // given
+        let pedometer = MockPedometer()
+        let sut = PedometerViewModel(pedometer: pedometer)
+        
+        let pedometerData = MockPedometerData(steps: 100, distanceTravelled: 10)
+        
+        // when
+        sut.startPedometer()
+        pedometer.sendData(pedometerData)
+        
+        // then
+        XCTAssertEqual(pedometerData.steps, sut.steps)
+        XCTAssertEqual(pedometerData.distanceTravelled, sut.distranceTravelled)
+    }
 
 }
