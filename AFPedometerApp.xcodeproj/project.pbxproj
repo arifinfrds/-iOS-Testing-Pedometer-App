@@ -19,6 +19,10 @@
 		924E22F0253DE0C90076642A /* AFPedometerAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E22EF253DE0C90076642A /* AFPedometerAppTests.swift */; };
 		924E22FB253DE0C90076642A /* AFPedometerAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E22FA253DE0C90076642A /* AFPedometerAppUITests.swift */; };
 		924E230C253DE4590076642A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 924E230B253DE4590076642A /* README.md */; };
+		92CA515825402EFF009973E6 /* MockPedometerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA515725402EFF009973E6 /* MockPedometerData.swift */; };
+		92CA5168254031AA009973E6 /* PedometerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA5167254031AA009973E6 /* PedometerData.swift */; };
+		92CA516D254031C0009973E6 /* CMPedometerData+PedometerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA516C254031C0009973E6 /* CMPedometerData+PedometerData.swift */; };
+		92CA517E2540326C009973E6 /* MockPedometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA517D2540326C009973E6 /* MockPedometer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,10 @@
 		924E22FA253DE0C90076642A /* AFPedometerAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFPedometerAppUITests.swift; sourceTree = "<group>"; };
 		924E22FC253DE0C90076642A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		924E230B253DE4590076642A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		92CA515725402EFF009973E6 /* MockPedometerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPedometerData.swift; sourceTree = "<group>"; };
+		92CA5167254031AA009973E6 /* PedometerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedometerData.swift; sourceTree = "<group>"; };
+		92CA516C254031C0009973E6 /* CMPedometerData+PedometerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMPedometerData+PedometerData.swift"; sourceTree = "<group>"; };
+		92CA517D2540326C009973E6 /* MockPedometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPedometer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +126,8 @@
 				920B12D8253EEE14006868DC /* CMPedometer+Pedometer.swift */,
 				920B12DD253EEE34006868DC /* Pedometer.swift */,
 				920B12E2253EEE47006868DC /* PedometerViewModel.swift */,
+				92CA5167254031AA009973E6 /* PedometerData.swift */,
+				92CA516C254031C0009973E6 /* CMPedometerData+PedometerData.swift */,
 			);
 			path = AFPedometerApp;
 			sourceTree = "<group>";
@@ -133,6 +143,7 @@
 		924E22EE253DE0C90076642A /* AFPedometerAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				92CA518225403288009973E6 /* Mocks */,
 				924E22EF253DE0C90076642A /* AFPedometerAppTests.swift */,
 				924E22F1253DE0C90076642A /* Info.plist */,
 			);
@@ -146,6 +157,15 @@
 				924E22FC253DE0C90076642A /* Info.plist */,
 			);
 			path = AFPedometerAppUITests;
+			sourceTree = "<group>";
+		};
+		92CA518225403288009973E6 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				92CA515725402EFF009973E6 /* MockPedometerData.swift */,
+				92CA517D2540326C009973E6 /* MockPedometer.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +305,8 @@
 				924E22DD253DE0C80076642A /* ContentView.swift in Sources */,
 				920B12E3253EEE47006868DC /* PedometerViewModel.swift in Sources */,
 				920B12D9253EEE14006868DC /* CMPedometer+Pedometer.swift in Sources */,
+				92CA5168254031AA009973E6 /* PedometerData.swift in Sources */,
+				92CA516D254031C0009973E6 /* CMPedometerData+PedometerData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +314,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92CA517E2540326C009973E6 /* MockPedometer.swift in Sources */,
 				924E22F0253DE0C90076642A /* AFPedometerAppTests.swift in Sources */,
+				92CA515825402EFF009973E6 /* MockPedometerData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

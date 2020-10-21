@@ -29,3 +29,4 @@ extension CMPedometer: Pedometer {
         }
     }
 }
+
